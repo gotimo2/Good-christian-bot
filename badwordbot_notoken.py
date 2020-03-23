@@ -14,6 +14,8 @@ deathquotes = [
 ]
 client = discord.Client()
 
+badwordlist = open("badwordlist", "r").read().split()
+
 @client.event
 async def on_message(message):
     if message.author == client.user: #no real reason for this, the bot is never going to call itself, but it takes 5 seconds to implement so i might as well
@@ -22,14 +24,17 @@ async def on_message(message):
         response = f'hello human {message.author}'
         print(f'sent {response}')
         await message.channel.send(response)
-    #add 'eyes' reaction when a banned word is said and log it to file and console
-    if 'shit' in message.content.lower() or 'fuck' in message.content.lower() or 'kut' in message.content.lower():
-        print(f'{message.author} said a bad word, {random.choice(deathquotes)}.')
-        f = open("log.txt", "a")
-        f.write(f'{current}: {message.author.id} as {message.author} said a banned word in message \'{message.content}\'\n' )
-        f.close()
-        await message.add_reaction('\N{EYES}')
-        return
+
+    for word in badwordlist:
+        #add 'eyes' reaction when a banned word is said and log it to file and console
+        if word in message.content.lower():
+            print(f'{message.author} said a bad word, {random.choice(deathquotes)}.')
+            f = open("log.txt", "a")
+            f.write(f'{datetime.datetime.now()}: {message.author.id} as {message.author} said a banned word in message \'{message.content}\'\n' )
+            f.close()
+            await message.add_reaction('\N{EYES}')
+            return
+
     #check if message calls to swear counter
     if message.content.startswith('!swearcount'):
         sqid = message.content.lstrip('!swearcount ')
