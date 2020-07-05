@@ -1,14 +1,14 @@
-#Good Christian bot
+# Good Christian bot
 
-##A bot that counts how often users sin
+## A bot that counts how often users sin
 
-###And by "sin" i mean "swear in discord"
+### And by "sin" i mean "swear in discord"
 
-##Dependencies
+## Dependencies
 - discord.py
 - dotenv
 
-##Usage
+## Usage
 
 * Clone this repository
 * Get a token from the [Discord developer portal](https://discord.com/developers/applications)
