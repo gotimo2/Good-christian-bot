@@ -7,9 +7,9 @@ import random
 import dotenv
 
 #dotenv stuff
-from dotenv import load_dotenv
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
+from dotenv import load_dotenv #import loading .env function
+load_dotenv() #load .env
+TOKEN = os.getenv("TOKEN") #get token from .env and define it
 
 #set a token, define date and time + client and things to say when a banned word is said
 now = datetime.datetime.now()
@@ -18,7 +18,6 @@ deathquotes = [
     'they must die','to the forever box with them','their free trial of life has ended','destruction imminent','how dare they','nani','fuck that - wait','god will not have as much mercy as me','delete that','i will put a toaster in their bath','what in the name of gods green earth','death would not be enough of a punishment','what a sin','truly the worst kind of person','living was overrated anyway','turn up the gas in the oven','...','and no one asked for it','help they\'re making me write stupid things for a stupid bot to say i\'m located at' 
 ]
 client = discord.Client()
-
 
 badwordlist = open("badwordlist.txt", "r").read().split()
 
