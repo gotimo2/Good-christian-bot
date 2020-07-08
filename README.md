@@ -14,6 +14,6 @@
 * Get a token from the [Discord developer portal](https://discord.com/developers/applications)
 * Set that token after TOKEN in .env
 * (Optional) add words to badwordlist.txt 
-* `badwordbot.py`
+* `python3 badwordbot.py`
 * Congratulations! The bot is now running!
 
