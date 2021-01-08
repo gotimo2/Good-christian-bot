@@ -19,7 +19,7 @@ deathquotes = [
 ]
 client = discord.Client()
 
-badwordlist = open("badwordlist.txt", "r").read().split("\n")
+badwordlist = open("badwordlist.txt", "r").read().split()
 
 @client.event
 async def on_message(message):
